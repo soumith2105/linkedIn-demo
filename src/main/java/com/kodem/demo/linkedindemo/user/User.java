@@ -18,27 +18,29 @@ import com.kodem.demo.linkedindemo.skillsModels.skill.Skill;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO) // Automatically Generate a value
     private Integer id;
-    @Column(unique = true)
+    @Column(unique = true) // Unique Key
     private String username;
     private String name;
     private String password;
     private Integer roles;
     private boolean active;
+    @Column(unique = true) // Unique Key
     private String email;
     private String description;
     private String address;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL) // One to Many Relationship with Experience
     private List<Experience> experiences;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL) // One to Many Relationship with Education
     private List<Education> educations;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL) // One to Many Relationship with Skill
     private List<Skill> skills;
 
+    // Constructor
     public User() {
     }
 
@@ -58,7 +60,7 @@ public class User {
         this.address = address;
     }
 
-    // ID
+    // Id
     public Integer getId() {
         return id;
     }
@@ -67,7 +69,7 @@ public class User {
         this.id = id;
     }
 
-    // NAME
+    // Name
     public String getName() {
         return this.name;
     }
@@ -76,8 +78,7 @@ public class User {
         this.name = name;
     }
 
-    // PASSWORD
-
+    // Password
     public String getPassword() {
         return this.password;
     }
@@ -86,7 +87,7 @@ public class User {
         this.password = password;
     }
 
-    // USERNAME
+    // Username
     public String getUsername() {
         return this.username;
     }
@@ -95,7 +96,7 @@ public class User {
         this.username = username;
     }
 
-    // ROLES
+    // Roles
     public Integer getRoles() {
         return this.roles;
     }
@@ -104,12 +105,12 @@ public class User {
         this.roles = roles;
     }
 
-    // ACTIVE
+    // Active
     public boolean getActive() {
         return this.active;
     }
 
-    // EMAIL
+    // Email
     public String getEmail() {
         return this.email;
     }
@@ -118,7 +119,7 @@ public class User {
         this.email = email;
     }
 
-    // DESCRIPTION
+    // Description
     public String getDescription() {
         return this.description;
     }
@@ -127,7 +128,7 @@ public class User {
         this.description = description;
     }
 
-    // ADDRESS
+    // Address
     public String getAddress() {
         return this.address;
     }

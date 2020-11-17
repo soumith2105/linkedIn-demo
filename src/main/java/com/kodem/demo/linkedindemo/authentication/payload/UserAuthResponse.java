@@ -1,9 +1,11 @@
 package com.kodem.demo.linkedindemo.authentication.payload;
 
+// This Class is just to refactor the response body
 public class UserAuthResponse {
     private String message;
     private String messageType;
 
+    // Constructor
     public UserAuthResponse() {
     }
 
@@ -12,6 +14,7 @@ public class UserAuthResponse {
         this.messageType = messageType;
     }
 
+    // Message
     public String getMessage() {
         return message;
     }
@@ -20,6 +23,7 @@ public class UserAuthResponse {
         this.message = message;
     }
 
+    // Message Type
     public String getMessageType() {
         return messageType;
     }
@@ -28,6 +32,7 @@ public class UserAuthResponse {
         this.messageType = messageType;
     }
 
+    // To String conversion
     @Override
     public String toString() {
         return "{\"message\": \"" + message + "\",\"messageType\": \"" + messageType + "\"}";

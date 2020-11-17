@@ -13,10 +13,10 @@ import com.kodem.demo.linkedindemo.user.User;
 public class Education {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Automatically Generate a value
     private int id;
 
-    @ManyToOne
+    @ManyToOne // Many to One Relationship with Institute
     private Institute institute;
 
     private String duration;
@@ -26,9 +26,10 @@ public class Education {
     private String location;
     private String course;
 
-    @ManyToOne
+    @ManyToOne // Many to One Relationship with User
     private User user;
 
+    // Constructors
     public Education(Institute institute, String duration, String startMonth, String endMonth, String description,
             String location, String course, User user) {
         this.institute = institute;
@@ -44,6 +45,7 @@ public class Education {
     public Education() {
     }
 
+    // Id
     public int getId() {
         return this.id;
     }
@@ -52,6 +54,7 @@ public class Education {
         this.id = id;
     }
 
+    // Institute
     public Institute getInstitute() {
         return this.institute;
     }
@@ -60,6 +63,7 @@ public class Education {
         this.institute = institute;
     }
 
+    // Duration
     public String getDuration() {
         return this.duration;
     }
@@ -68,6 +72,7 @@ public class Education {
         this.duration = duration;
     }
 
+    // StartMonth
     public String getStartMonth() {
         return this.startMonth;
     }
@@ -76,6 +81,7 @@ public class Education {
         this.startMonth = startMonth;
     }
 
+    // EndMonth
     public String getEndMonth() {
         return this.endMonth;
     }
@@ -84,6 +90,7 @@ public class Education {
         this.endMonth = endMonth;
     }
 
+    // Description
     public String getDescription() {
         return this.description;
     }
@@ -92,6 +99,7 @@ public class Education {
         this.description = description;
     }
 
+    // Location
     public String getLocation() {
         return this.location;
     }
@@ -100,6 +108,7 @@ public class Education {
         this.location = location;
     }
 
+    // Course
     public String getCourse() {
         return this.course;
     }
@@ -108,6 +117,7 @@ public class Education {
         this.course = course;
     }
 
+    // User
     public void setUser(User user) {
         this.user = user;
     }

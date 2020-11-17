@@ -14,37 +14,40 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/company")
+@RequestMapping("/company") // Setting a prefix to all URI's below
 public class CompanyController {
-    
+
     @Autowired
     private CompanyService companyService;
 
-    // CREATE
+    // Create (POST Request)
     @PostMapping
     public void createCompany(@RequestBody Company company) {
         companyService.addCompany(company);
     }
 
-    // RETRIEVE
-    @GetMapping("/{id}")
-    public Optional<Company> getCompany(@PathVariable Integer id) {
-        return companyService.getCompany(id);
+    // Retrieve (GET Request)
+
+    // Get company object based on slug
+    @GetMapping("/{slug}")
+    public Optional<Company> getCompany(@PathVariable Integer slug) {
+        return companyService.getCompany(slug);
     }
 
+    // Get all company objects
     @GetMapping
     public List<Company> getCompany() {
         return companyService.getAllCompanies();
     }
 
-    // UPDATE
-    @PutMapping("/{id}")
+    // Update (PUT Request)
+    @PutMapping("/{slug}")
     public void updateCompany(@RequestBody Company company) {
         companyService.updateCompany(company);
     }
 
-    // DELETE
-    @DeleteMapping("/{id}")
+    // Delete (DELETE Request)
+    @DeleteMapping("/{slug}")
     public void deleteCompany(@PathVariable Integer id) {
         companyService.deleteCompany(id);
     }

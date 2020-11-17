@@ -9,7 +9,10 @@ import com.kodem.demo.linkedindemo.user.User;
 import org.springframework.data.repository.CrudRepository;
 
 public interface SkillRepository extends CrudRepository<Skill, Integer> {
+
+    // Find by User's Username
     List<Skill> findByUserUsername(String username);
 
+    // Find by Language and User
     Optional<Skill> findByLanguageAndUser(Language language, User user);
 }

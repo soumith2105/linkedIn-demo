@@ -25,24 +25,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+
+        // Setting UserDetailService and passcode encoder
         auth.userDetailsService(userDtlsService).passwordEncoder(passwordEncoder);
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().requestCache().disable().sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
-                .addFilter(new JwtUserAuthFilter(authenticationManager()))
-                .addFilterAfter(new JwtTokenFilter(), JwtUserAuthFilter.class).authorizeRequests()
-                .antMatchers("/signup", "/login", "/company", "/institute", "/language").permitAll().anyRequest()
-                .authenticated();
-    }
 
-    // @Bean
-    // public DaoAuthenticationProvider daoAuthenticationProvider() {
-    // DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-    // provider.setPasswordEncoder(passwordEncoder);
-    // provider.setUserDetailsService(userDtlsService);
-    // return provider;
-    // }
+        http.csrf().disable() // Will not be used because we are dealing with RestAPI
+                .requestCache().disable() // Don't save any session information on client side
+                // Don't use Session Management
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+                // Adding Filter to validate login requests
+                .addFilter(new JwtUserAuthFilter(authenticationManager()))
+                // Adding filter to validate JWT
+                .addFilterAfter(new JwtTokenFilter(), JwtUserAuthFilter.class)          
+                .authorizeRequests()
+                // Allow Anyone Paths
+                .antMatchers("/signup", "/login", "/company", "/institute", "/language").permitAll()
+                // Restrict other urls
+                .anyRequest().authenticated();
+    }
 }

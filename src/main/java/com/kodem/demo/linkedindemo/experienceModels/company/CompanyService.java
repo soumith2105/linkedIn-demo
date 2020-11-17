@@ -13,29 +13,32 @@ public class CompanyService {
     @Autowired
     private CompanyRepository companyRepository;
 
-    // CREATE
+    // Create
     public void addCompany(Company company) {
         companyRepository.save(company);
     }
 
-    // RETRIEVE
-    public Optional<Company> getCompany(Integer id) {
-        return companyRepository.findById(id);
+    // Retrieve
+
+    // Get company object based on slug
+    public Optional<Company> getCompany(Integer slug) {
+        return companyRepository.findById(slug);
     }
 
+    // Get all Company objects
     public List<Company> getAllCompanies() {
         List<Company> companies = new ArrayList<>();
         companyRepository.findAll().forEach(companies::add);
         return companies;
     }
 
-    // UPDATE
+    // Update
     public void updateCompany(Company company) {
         companyRepository.save(company);
     }
 
-    // DELETE
-    public void deleteCompany(Integer id) {
-        companyRepository.deleteById(id);
+    // Delete
+    public void deleteCompany(Integer slug) {
+        companyRepository.deleteById(slug);
     }
 }

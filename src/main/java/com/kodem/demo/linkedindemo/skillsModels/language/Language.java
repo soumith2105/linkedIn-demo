@@ -16,16 +16,17 @@ import com.kodem.demo.linkedindemo.skillsModels.skill.Skill;
 public class Language {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO) // Automatically Generate a value
     private Integer id;
-    @Column(unique = true)
+    @Column(unique = true) // Unique Key
     private String slug;
     private String name;
     private String type;
 
-    @OneToMany(mappedBy = "language", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "language", cascade = CascadeType.ALL) // One to Many Relationship with Skill
     private List<Skill> skills;
 
+    // Constructors
     public Language() {
 
     }
@@ -40,7 +41,7 @@ public class Language {
         this.type = type;
     }
 
-    // IID
+    // Id
     public Integer getId() {
         return id;
     }
@@ -49,6 +50,7 @@ public class Language {
         this.id = id;
     }
 
+    // Slug
     public String getSlug() {
         return this.slug;
     }
@@ -57,6 +59,7 @@ public class Language {
         this.slug = slug;
     }
 
+    // Name
     public String getName() {
         return this.name;
     }
@@ -65,6 +68,7 @@ public class Language {
         this.name = name;
     }
 
+    // Type
     public String getType() {
         return this.type;
     }

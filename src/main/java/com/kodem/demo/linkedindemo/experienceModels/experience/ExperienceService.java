@@ -16,32 +16,38 @@ public class ExperienceService {
     @Autowired
     private ExperienceRepository experienceRepository;
 
-    // CREATE
+    // Create
     public void addExperience(Experience experience) {
+
+        // Saving experience object to DB
         experienceRepository.save(experience);
     }
 
-    // RETRIEVE
+    // Retrieve
+
+    // Getting all Experience objects based on username
     public List<Experience> getAllExperiences(String username) {
         List<Experience> experiences = new ArrayList<>();
         experienceRepository.findByUserUsername(username).forEach(experiences::add);
         return experiences;
     }
 
+    // Getting all Experience objects based on id
     public Optional<Experience> getExperience(Integer id) {
         return experienceRepository.findById(id);
     }
 
+    // Getting all Experience objects based on Institute and User
     public Optional<Experience> getByCompanyAndUser(Company company, User user) {
         return experienceRepository.findByCompanyAndUser(company, user);
     }
 
-    // UPDATE
+    // Update
     public void updateExperience(Experience experience) {
         experienceRepository.save(experience);
     }
 
-    // DELETE
+    // Delete
     public void deleteExperience(int id) {
         experienceRepository.deleteById(id);
     }

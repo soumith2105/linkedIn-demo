@@ -16,32 +16,38 @@ public class EducationService {
     @Autowired
     private EducationRepository educationRepository;
 
-    // CREATE
+    // Create
     public void addEducation(Education education) {
+
+        // Saving education object to DB
         educationRepository.save(education);
     }
 
-    // RETRIEVE
+    // Retrieve
+
+    // Getting all Education objects based on username
     public List<Education> getAllEducations(String username) {
         List<Education> educations = new ArrayList<>();
         educationRepository.findByUserUsername(username).forEach(educations::add);
         return educations;
     }
 
+    // Getting all Education objects based on id
     public Optional<Education> getEducation(Integer id) {
         return educationRepository.findById(id);
     }
 
+    // Getting all Education objects based on Institute and User
     public Optional<Education> getByCompanyAndUser(Institute institute, User user) {
         return educationRepository.findByInstituteAndUser(institute, user);
     }
 
-    // UPDATE
+    // Update
     public void updateEducation(Education education) {
         educationRepository.save(education);
     }
 
-    // DELETE
+    // Delete
     public void deleteEducation(int id) {
         educationRepository.deleteById(id);
     }

@@ -13,29 +13,32 @@ public class InstituteService {
     @Autowired
     private InstituteRepository instituteRepository;
 
-    // CREATE
+    // Create
     public void addInstitute(Institute institute) {
         instituteRepository.save(institute);
     }
 
-    // RETRIEVE
-    public Optional<Institute> getInstitute(String id) {
-        return instituteRepository.findById(id);
+    // Retrieve
+
+    // Get institute object based on slug
+    public Optional<Institute> getInstitute(String slug) {
+        return instituteRepository.findById(slug);
     }
 
+    // Get all institute objects
     public List<Institute> getAllInstitutes() {
         List<Institute> institutes = new ArrayList<>();
         instituteRepository.findAll().forEach(institutes::add);
         return institutes;
     }
 
-    // UPDATE
+    // Update
     public void updateInstitute(Institute institute) {
         instituteRepository.save(institute);
     }
 
-    // DELETE
-    public void deleteInstitute(String id) {
-        instituteRepository.deleteById(id);
+    // Delete
+    public void deleteInstitute(String slug) {
+        instituteRepository.deleteById(slug);
     }
 }

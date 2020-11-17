@@ -12,16 +12,17 @@ import com.kodem.demo.linkedindemo.user.User;
 @Entity
 public class Skill {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Automatically Generate a value
     private int id;
 
-    @ManyToOne
+    @ManyToOne // Many to One Relationship with Company
     private Language language;
     private int level;
 
-    @ManyToOne
+    @ManyToOne // Many to One Relationship with User
     private User user;
 
+    // Constructors
     public Skill(Language language, int level, User user) {
         this.language = language;
         this.level = level;
@@ -31,6 +32,7 @@ public class Skill {
     public Skill() {
     }
 
+    // Id
     public int getId() {
         return this.id;
     }
@@ -39,6 +41,7 @@ public class Skill {
         this.id = id;
     }
 
+    // Language
     public Language getLanguage() {
         return this.language;
     }
@@ -47,6 +50,7 @@ public class Skill {
         this.language = language;
     }
 
+    // Level
     public int getLevel() {
         return this.level;
     }
@@ -55,6 +59,7 @@ public class Skill {
         this.level = level;
     }
 
+    // User
     public void setUser(User user) {
         this.user = user;
     }

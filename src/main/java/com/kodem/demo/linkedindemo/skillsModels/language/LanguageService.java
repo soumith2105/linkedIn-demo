@@ -13,29 +13,32 @@ public class LanguageService {
     @Autowired
     private LanguageRepository languageRepository;
 
-    // CREATE
+    // Create
     public void addLanguage(Language language) {
         languageRepository.save(language);
     }
 
-    // RETRIEVE
-    public Optional<Language> getLanguage(String id) {
-        return languageRepository.findById(id);
+    // Retrieve
+
+    // Get Language object based on slug
+    public Optional<Language> getLanguage(String slug) {
+        return languageRepository.findById(slug);
     }
 
+    // Get all Language objects
     public List<Language> getAllLanguages() {
         List<Language> languages = new ArrayList<>();
         languageRepository.findAll().forEach(languages::add);
         return languages;
     }
 
-    // UPDATE
+    // Update
     public void updateLanguage(Language language) {
         languageRepository.save(language);
     }
 
-    // DELETE
-    public void deleteLanguage(String id) {
-        languageRepository.deleteById(id);
+    // Delete
+    public void deleteLanguage(String slug) {
+        languageRepository.deleteById(slug);
     }
 }

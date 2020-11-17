@@ -10,6 +10,7 @@ public class UserSerializer {
     private String description;
     private String address;
 
+    // Constructors
     public UserSerializer(String username, String name, String password, Integer roles, boolean active, String email,
             String description, String address) {
         this.username = username;
@@ -22,6 +23,7 @@ public class UserSerializer {
         this.address = address;
     }
 
+    // Username
     public String getUsername() {
         return username;
     }
@@ -30,6 +32,7 @@ public class UserSerializer {
         this.username = username;
     }
 
+    // Name
     public String getName() {
         return name;
     }
@@ -38,6 +41,7 @@ public class UserSerializer {
         this.name = name;
     }
 
+    // Password
     public String getPassword() {
         return password;
     }
@@ -46,6 +50,7 @@ public class UserSerializer {
         this.password = password;
     }
 
+    // Roles
     public Integer getRoles() {
         return roles;
     }
@@ -54,6 +59,7 @@ public class UserSerializer {
         this.roles = roles;
     }
 
+    // Active
     public boolean isActive() {
         return active;
     }
@@ -62,6 +68,7 @@ public class UserSerializer {
         this.active = active;
     }
 
+    // Email
     public String getEmail() {
         return email;
     }
@@ -70,6 +77,7 @@ public class UserSerializer {
         this.email = email;
     }
 
+    // Description
     public String getDescription() {
         return description;
     }
@@ -78,6 +86,7 @@ public class UserSerializer {
         this.description = description;
     }
 
+    // Address
     public String getAddress() {
         return address;
     }

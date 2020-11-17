@@ -16,17 +16,17 @@ import com.kodem.demo.linkedindemo.educationModels.education.Education;
 public class Institute {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO) // Automatically Generate a value
     private Integer id;
-    @Column(unique = true)
+    @Column(unique = true) // Unique Key
     private String slug;
     private String name;
     private float rating;
 
-    @OneToMany(mappedBy = "institute", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "institute", cascade = CascadeType.ALL) // One to Many Relationship with Education
     private List<Education> education;
 
-    // CONSTRUCTORS
+    // Constructors
     public Institute(String slug, String name, float rating) {
         this.slug = slug;
         this.name = name;
@@ -41,7 +41,7 @@ public class Institute {
         this.slug = slug;
     }
 
-    // ID
+    // Id
     public Integer getId() {
         return id;
     }
@@ -50,7 +50,7 @@ public class Institute {
         this.id = id;
     }
 
-    // SLUG
+    // Slug
     public String getSlug() {
         return this.slug;
     }
@@ -59,7 +59,7 @@ public class Institute {
         this.slug = slug;
     }
 
-    // NAME
+    // Name
     public String getName() {
         return this.name;
     }
@@ -68,7 +68,7 @@ public class Institute {
         this.name = name;
     }
 
-    // RATING
+    // Rating
     public float getRating() {
         return this.rating;
     }

@@ -10,6 +10,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+
+// This class will be called by UserDtlsService's loadUserByUsername method
 public class UserDtls implements UserDetails {
     private static final long serialVersionUID = 1L;
     private String username;
@@ -18,6 +20,7 @@ public class UserDtls implements UserDetails {
     private boolean active;
     private Collection<? extends GrantedAuthority> authorities;
 
+    // Constructors
     public UserDtls(String username, String email, String password, boolean active,
             Collection<? extends GrantedAuthority> authorities) {
         this.username = username;
@@ -41,40 +44,48 @@ public class UserDtls implements UserDetails {
         this.authorities = authorities;
     }
 
-    public String getEmail() {
-        return this.email;
-    }
-
+    // Roles
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
     }
 
+    // Password
     @Override
     public String getPassword() {
         return this.password;
     }
 
+    // Username
     @Override
     public String getUsername() {
         return this.username;
     }
 
+    // Email
+    public String getEmail() {
+        return this.email;
+    }
+
+    // Expired or not
     @Override
     public boolean isAccountNonExpired() {
         return true;
     }
 
+    // Locked or not
     @Override
     public boolean isAccountNonLocked() {
         return true;
     }
 
+    // Credentials expired or not
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
     }
 
+    // Account enabled or not
     @Override
     public boolean isEnabled() {
         return this.active;

@@ -14,36 +14,39 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/language")
+@RequestMapping("/language") // Setting a prefix to all URI's below
 public class LanguageController {
 
     @Autowired
     private LanguageService languageService;
 
-    // CREATE
+    // Create (POST Request)
     @PostMapping
     public void createLanguage(@RequestBody Language language) {
         languageService.addLanguage(language);
     }
 
-    // RETRIEVE
+    // Retrieve (GET Request)
+
+    // Get language object based on slug
     @GetMapping("/{slug}")
     public Optional<Language> getLanguage(@PathVariable String slug) {
         return languageService.getLanguage(slug);
     }
 
+    // Get all language objects
     @GetMapping
     public List<Language> getLanguage() {
         return languageService.getAllLanguages();
     }
 
-    // UPDATE
+    // Update (PUT Request)
     @PutMapping("/{slug}")
     public void updateLanguage(@RequestBody Language language) {
         languageService.updateLanguage(language);
     }
 
-    // DELETE
+    // Delete (DELETE Request)
     @DeleteMapping("/{slug}")
     public void deleteLanguage(@PathVariable String slug) {
         languageService.deleteLanguage(slug);

@@ -9,7 +9,10 @@ import com.kodem.demo.linkedindemo.user.User;
 import org.springframework.data.repository.CrudRepository;
 
 public interface EducationRepository extends CrudRepository<Education, Integer> {
+
+    // Find by User's Username
     List<Education> findByUserUsername(String username);
 
+    // Find by Institute and User
     Optional<Education> findByInstituteAndUser(Institute institute, User user);
 }

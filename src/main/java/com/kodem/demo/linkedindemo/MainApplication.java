@@ -11,10 +11,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableJpaRepositories
 public class MainApplication {
 
+	// Setting up bean so that we can hash password anywhere throughout the project
 	@Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(MainApplication.class, args);

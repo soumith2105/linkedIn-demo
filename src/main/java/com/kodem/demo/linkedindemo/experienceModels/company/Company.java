@@ -16,17 +16,17 @@ import com.kodem.demo.linkedindemo.experienceModels.experience.Experience;
 @Entity
 public class Company {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO) // Automatically Generate a value
     private Integer id;
-    @Column(unique = true)
+    @Column(unique = true) // Unique Key
     private String slug;
     private String name;
     private float rating;
 
-    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL) // One to Many Relationship with Experience
     private List<Experience> experiences;
 
-    // CONSTRUCTORS
+    // Constructors
     public Company(String name, String slug, float rating) {
         this.name = name;
         this.slug = slug;
@@ -41,7 +41,7 @@ public class Company {
         this.slug = slug;
     }
 
-    // ID
+    // Id
     public Integer getId() {
         return id;
     }
@@ -50,7 +50,7 @@ public class Company {
         this.id = id;
     }
 
-    // NAME
+    // Name
     public String getName() {
         return this.name;
     }
@@ -59,7 +59,7 @@ public class Company {
         this.name = name;
     }
 
-    // SLUG
+    // Slug
     public String getSlug() {
         return this.slug;
     }
@@ -68,7 +68,7 @@ public class Company {
         this.slug = slug;
     }
 
-    // RATING
+    // Rating
     public float getRating() {
         return this.rating;
     }

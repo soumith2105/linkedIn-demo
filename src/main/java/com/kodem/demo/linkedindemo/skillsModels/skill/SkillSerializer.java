@@ -1,10 +1,12 @@
 package com.kodem.demo.linkedindemo.skillsModels.skill;
 
+// This Class is just to refactor the request body
 public class SkillSerializer {
     private String language;
     private int level;
     private String user;
 
+    // Constructors
     public SkillSerializer(String language, int level, String user) {
         this.language = language;
         this.level = level;
@@ -19,6 +21,7 @@ public class SkillSerializer {
         this.language = language;
     }
 
+    // Level
     public int getLevel() {
         return this.level;
     }
@@ -27,6 +30,7 @@ public class SkillSerializer {
         this.level = level;
     }
 
+    // User
     public String getUser() {
         return this.user;
     }

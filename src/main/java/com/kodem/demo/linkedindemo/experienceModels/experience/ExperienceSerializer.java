@@ -1,7 +1,7 @@
 package com.kodem.demo.linkedindemo.experienceModels.experience;
 
+// This Class is just to refactor the request body
 public class ExperienceSerializer {
-    private Integer id;
     private String role;
     private String company;
     private String duration;
@@ -11,9 +11,9 @@ public class ExperienceSerializer {
     private String location;
     private String user;
 
-    public ExperienceSerializer(Integer id, String role, String company, String duration, String startMonth,
+    // Constructors
+    public ExperienceSerializer(String role, String company, String duration, String startMonth,
             String endMonth, String description, String location, String user) {
-        this.id = id;
         this.role = role;
         this.company = company;
         this.duration = duration;
@@ -27,14 +27,7 @@ public class ExperienceSerializer {
     public ExperienceSerializer() {
     }
 
-    public Integer getId() {
-        return this.id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
+    // Role
     public String getRole() {
         return this.role;
     }
@@ -43,6 +36,7 @@ public class ExperienceSerializer {
         this.role = role;
     }
 
+    // Company
     public String getCompany() {
         return this.company;
     }
@@ -51,6 +45,7 @@ public class ExperienceSerializer {
         this.company = company;
     }
 
+    // Duration
     public String getDuration() {
         return this.duration;
     }
@@ -59,6 +54,7 @@ public class ExperienceSerializer {
         this.duration = duration;
     }
 
+    // StartMonth
     public String getStartMonth() {
         return this.startMonth;
     }
@@ -67,6 +63,7 @@ public class ExperienceSerializer {
         this.startMonth = startMonth;
     }
 
+    // EndMonth
     public String getEndMonth() {
         return this.endMonth;
     }
@@ -75,6 +72,7 @@ public class ExperienceSerializer {
         this.endMonth = endMonth;
     }
 
+    // Description
     public String getDescription() {
         return this.description;
     }
@@ -83,6 +81,7 @@ public class ExperienceSerializer {
         this.description = description;
     }
 
+    // Location
     public String getLocation() {
         return this.location;
     }
@@ -91,6 +90,7 @@ public class ExperienceSerializer {
         this.location = location;
     }
 
+    // User
     public String getUser() {
         return this.user;
     }

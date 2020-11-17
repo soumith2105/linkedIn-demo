@@ -13,11 +13,11 @@ import com.kodem.demo.linkedindemo.user.User;
 public class Experience {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Automatically Generate a value
     private Integer id;
     private String role;
 
-    @ManyToOne
+    @ManyToOne // Many to One Relationship with Company
     private Company company;
 
     private String duration;
@@ -26,9 +26,10 @@ public class Experience {
     private String description;
     private String location;
 
-    @ManyToOne
+    @ManyToOne // Many to One Relationship with User
     private User user;
 
+    // Constructors
     public Experience(String role, Company company, String duration, String startMonth, String endMonth,
             String description, String location, User user) {
         this.role = role;
@@ -44,7 +45,7 @@ public class Experience {
     public Experience() {
     }
 
-    // USER
+    // User
     public void setUser(User user) {
         this.user = user;
     }
@@ -53,7 +54,7 @@ public class Experience {
         return this.user.getUsername();
     }
 
-    // ID
+    // Id
     public Integer getId() {
         return this.id;
     }
@@ -62,7 +63,7 @@ public class Experience {
         this.id = id;
     }
 
-    // ROLE
+    // Role
     public String getRole() {
         return this.role;
     }
@@ -71,7 +72,7 @@ public class Experience {
         this.role = role;
     }
 
-    // COMPANY
+    // Company
     public Company getCompany() {
         return this.company;
     }
@@ -80,7 +81,7 @@ public class Experience {
         this.company = company;
     }
 
-    // DURATION
+    // Duration
     public String getDuration() {
         return this.duration;
     }
@@ -89,7 +90,7 @@ public class Experience {
         this.duration = duration;
     }
 
-    // START MONTH
+    // StartMonth
     public String getStartMonth() {
         return this.startMonth;
     }
@@ -98,7 +99,7 @@ public class Experience {
         this.startMonth = startMonth;
     }
 
-    // END MONTH
+    // EndMonth
     public String getEndMonth() {
         return this.endMonth;
     }
@@ -107,7 +108,7 @@ public class Experience {
         this.endMonth = endMonth;
     }
 
-    // DESCRIPTION
+    // Description
     public String getDescription() {
         return this.description;
     }
@@ -116,7 +117,7 @@ public class Experience {
         this.description = description;
     }
 
-    // LOCATION
+    // Location
     public String getLocation() {
         return this.location;
     }
