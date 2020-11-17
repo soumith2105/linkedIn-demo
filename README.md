@@ -18,7 +18,9 @@ Technologies used for the Backend: Spring Boot, Mysql
 
 _Runnable main application path : `src > main > java > com.kodem.demo.linkedindemo`_
 
-`MainApplication.java`
+```
+MainApplication.java
+```
 
 <br>
 
@@ -82,7 +84,7 @@ InstitutionRepository.java (Interface)
 
 <br>
 
-### **Experience Model**
+### **Education Model**
 
 Folder Location : `com.kodem.demo.linkedindemo.experienceModels.company`
 
