@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.kodem.demo.linkedindemo.authentication.constants.JwtSecretKey;
 import com.kodem.demo.linkedindemo.authentication.payload.UserAuthResponse;
-import com.kodem.demo.linkedindemo.user.User;
-import com.kodem.demo.linkedindemo.user.UserSerializer;
-import com.kodem.demo.linkedindemo.user.UserService;
+import com.kodem.demo.linkedindemo.userModel.User;
+import com.kodem.demo.linkedindemo.userModel.UserSerializer;
+import com.kodem.demo.linkedindemo.userModel.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -61,7 +61,7 @@ public class UserAuthController {
     @PutMapping("/update")
     public UserAuthResponse editUserInfo(@RequestBody UserSerializer userData,
             @RequestHeader("Authorization") String authHeader, HttpServletResponse response) {
-                
+
         // Get the JWT from the request header
         String token = authHeader.replace("Bearer ", "");
 

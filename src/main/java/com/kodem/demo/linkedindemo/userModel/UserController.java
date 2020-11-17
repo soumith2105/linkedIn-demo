@@ -1,4 +1,4 @@
-package com.kodem.demo.linkedindemo.user;
+package com.kodem.demo.linkedindemo.userModel;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,7 +1,7 @@
 package com.kodem.demo.linkedindemo.authentication.services;
 
-import com.kodem.demo.linkedindemo.user.User;
-import com.kodem.demo.linkedindemo.user.UserRepository;
+import com.kodem.demo.linkedindemo.userModel.User;
+import com.kodem.demo.linkedindemo.userModel.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

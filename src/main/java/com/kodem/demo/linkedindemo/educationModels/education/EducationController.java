@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.kodem.demo.linkedindemo.authentication.constants.JwtSecretKey;
 import com.kodem.demo.linkedindemo.educationModels.institute.Institute;
 import com.kodem.demo.linkedindemo.educationModels.institute.InstituteRepository;
-import com.kodem.demo.linkedindemo.user.User;
-import com.kodem.demo.linkedindemo.user.UserRepository;
+import com.kodem.demo.linkedindemo.userModel.User;
+import com.kodem.demo.linkedindemo.userModel.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;

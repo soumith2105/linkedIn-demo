@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import com.kodem.demo.linkedindemo.educationModels.institute.Institute;
-import com.kodem.demo.linkedindemo.user.User;
+import com.kodem.demo.linkedindemo.userModel.User;
 
 @Entity
 public class Education {

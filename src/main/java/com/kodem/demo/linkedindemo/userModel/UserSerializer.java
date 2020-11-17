@@ -1,4 +1,4 @@
-package com.kodem.demo.linkedindemo.user;
+package com.kodem.demo.linkedindemo.userModel;
 
 public class UserSerializer {
     private String username;

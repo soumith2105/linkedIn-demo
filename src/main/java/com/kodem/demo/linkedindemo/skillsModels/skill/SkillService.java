@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.kodem.demo.linkedindemo.skillsModels.language.Language;
-import com.kodem.demo.linkedindemo.user.User;
+import com.kodem.demo.linkedindemo.userModel.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
