@@ -22,6 +22,7 @@ public class SkillSerializer {
     }
 
     // Level
+    
     public int getLevel() {
         return this.level;
     }

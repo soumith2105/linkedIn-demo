@@ -18,7 +18,7 @@ public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) // Automatically Generate a value
     private Integer id;
-    @Column(unique = true) // Unique Key
+    @Column(unique = true, length = 128) // Unique Key
     private String slug;
     private String name;
     private float rating;

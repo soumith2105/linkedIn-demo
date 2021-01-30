@@ -2,13 +2,7 @@ package com.kodem.demo.linkedindemo.userModel;
 
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 
 import com.kodem.demo.linkedindemo.educationModels.education.Education;
 import com.kodem.demo.linkedindemo.experienceModels.experience.Experience;
@@ -20,13 +14,13 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO) // Automatically Generate a value
     private Integer id;
-    @Column(unique = true) // Unique Key
+    @Column(unique = true, length = 128) // Unique Key
     private String username;
     private String name;
     private String password;
     private Integer roles;
     private boolean active;
-    @Column(unique = true) // Unique Key
+    @Column(unique = true, length = 128) // Unique Key
     private String email;
     private String description;
     private String address;
