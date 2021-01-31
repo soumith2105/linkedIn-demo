@@ -34,9 +34,9 @@ public class UserAuthController {
     public UserAuthResponse createUser(@RequestBody UserSerializer userData) {
 
         // Get the user data from the request body
-        User user = new User(userData.getUsername(), encoder.encode(userData.getPassword()), userData.getUsername(),
+        User user = new User(userData.getName(), encoder.encode(userData.getPassword()), userData.getUsername(),
                 userData.getRoles(), userData.isActive(), userData.getEmail(), userData.getDescription(),
-                userData.getAddress());
+                userData.getAddress(), userData.getStatus());
 
         // Add the user to DB
         userService.addUser(user);
@@ -65,7 +65,7 @@ public class UserAuthController {
                 .getBody().getSubject();
 
         // Check weather the user is trying to change their account or not
-        if (!userData.getUsername().equals(userString)) {
+        if (userService.getUser(userData.getUsername()).isPresent()) {
             // If yes then reject the request and send forbidden response status
             response.setStatus(403);
             return new UserAuthResponse("Access Denied", "error");
@@ -75,9 +75,9 @@ public class UserAuthController {
         User user = userService.getUser(userString).get();
 
         // Get the information from the request body
-        User changedUser = new User(userData.getUsername(), encoder.encode(userData.getPassword()),
+        User changedUser = new User(userData.getName(),
                 userData.getUsername(), userData.getRoles(), userData.isActive(), userData.getEmail(),
-                userData.getDescription(), userData.getAddress());
+                userData.getDescription(), userData.getAddress(), userData.getStatus());
 
         // Setting the id so that the data in DB can be overridden
         changedUser.setId(user.getId());

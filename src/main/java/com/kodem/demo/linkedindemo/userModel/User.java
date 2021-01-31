@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.kodem.demo.linkedindemo.educationModels.education.Education;
 import com.kodem.demo.linkedindemo.experienceModels.experience.Experience;
 import com.kodem.demo.linkedindemo.skillsModels.skill.Skill;
@@ -24,6 +25,7 @@ public class User {
     private String email;
     private String description;
     private String address;
+    private String status;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL) // One to Many Relationship with Experience
     private List<Experience> experiences;
@@ -43,7 +45,7 @@ public class User {
     }
 
     public User(String name, String password, String username, Integer roles, boolean active, String email,
-            String description, String address) {
+            String description, String address, String status) {
         this.name = name;
         this.password = password;
         this.username = username;
@@ -52,6 +54,19 @@ public class User {
         this.email = email;
         this.description = description;
         this.address = address;
+        this.status = status;
+    }
+
+    public User(String name, String username, Integer roles, boolean active, String email,
+                String description, String address, String status) {
+        this.name = name;
+        this.username = username;
+        this.roles = roles;
+        this.active = active;
+        this.email = email;
+        this.description = description;
+        this.address = address;
+        this.status = status;
     }
 
     // Id
@@ -73,6 +88,7 @@ public class User {
     }
 
     // Password
+//    @JsonIgnore
     public String getPassword() {
         return this.password;
     }
@@ -129,5 +145,13 @@ public class User {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

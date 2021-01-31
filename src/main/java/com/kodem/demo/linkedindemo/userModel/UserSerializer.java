@@ -9,10 +9,14 @@ public class UserSerializer {
     private String email;
     private String description;
     private String address;
+    private String status;
 
     // Constructors
+    public UserSerializer(){
+
+    }
     public UserSerializer(String username, String name, String password, Integer roles, boolean active, String email,
-            String description, String address) {
+            String description, String address, String status) {
         this.username = username;
         this.name = name;
         this.password = password;
@@ -21,6 +25,19 @@ public class UserSerializer {
         this.email = email;
         this.description = description;
         this.address = address;
+        this.status = status;
+    }
+
+    public UserSerializer(String username, String name, Integer roles, boolean active, String email,
+                          String description, String address, String status) {
+        this.username = username;
+        this.name = name;
+        this.roles = roles;
+        this.active = active;
+        this.email = email;
+        this.description = description;
+        this.address = address;
+        this.status = status;
     }
 
     // Username
@@ -95,4 +112,11 @@ public class UserSerializer {
         this.address = address;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }

@@ -15,7 +15,6 @@ public class UserService {
 
     // Create
     public void addUser(User user) {
-
         // Saving user object to DB
         userRepository.save(user);
     }
