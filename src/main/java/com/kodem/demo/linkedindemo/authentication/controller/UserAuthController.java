@@ -55,7 +55,7 @@ public class UserAuthController {
 
     @PutMapping("/update")
     public UserAuthResponse editUserInfo(@RequestBody UserSerializer userData,
-            @RequestHeader("Authorization") String authHeader, HttpServletResponse response) {
+                                         @RequestHeader("Authorization") String authHeader, HttpServletResponse response) {
 
         // Get the JWT from the request header
         String token = authHeader.replace("Bearer ", "");
@@ -65,7 +65,8 @@ public class UserAuthController {
                 .getBody().getSubject();
 
         // Check weather the user is trying to change their account or not
-        if (userService.getUser(userData.getUsername()).isPresent()) {
+        if (userService.getUser(userData.getUsername()).isPresent() &&
+                userService.getUser(userString).get() != userService.getUser(userData.getUsername()).get()) {
             // If yes then reject the request and send forbidden response status
             response.setStatus(403);
             return new UserAuthResponse("Access Denied", "error");
